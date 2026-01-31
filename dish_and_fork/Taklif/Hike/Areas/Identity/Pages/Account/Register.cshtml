@@ -1,0 +1,122 @@
+@page
+@model RegisterModel
+
+<link rel="stylesheet" href="~/css/identity/social_buttons.css" />
+<link rel="stylesheet" href="~/css/identity/links.css" />
+<link rel="stylesheet" href="~/css/identity/form.css" />
+
+<partial name="_Modal" />
+
+<div class="form_container">
+    <h1>Регистрация</h1>
+
+    <h3 class="email_enter_title"><span>Зарегистрируйтесь через социальные сети</span></h3>
+    <div class="email_enter_separator"></div>
+
+    @if ((Model.ExternalLogins?.Count ?? 0) == 0)
+    {
+        <div>
+        </div>
+    }
+    else
+    {
+        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post"
+              class="form-horizontal separated form-group">
+            <div class="social-buttonss">
+                @foreach (var provider in Model.ExternalLogins)
+                {
+                    <button type="submit" class="btn btn-social" name="provider" value="@provider.Name"
+                            title="Зарегестрируйтесь используя @provider.DisplayName аккаунт">
+                        <img src='~/img/@(provider.Name.ToLower() + ".png")' alt="" />
+                    </button>
+                }
+            </div>
+        </form>
+    }
+
+    <h3 class="email_enter_title"><span>или через e-mail</span></h3>
+    <div class="email_enter_separator"></div>
+
+    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal form form-group">
+        <div class="form-group">
+            <input asp-for="Input.Email" class="form-control" placeholder="E-mail" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Input.Password" class="form-control" placeholder="Пароль" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Повторение пароля" />
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <!-- licenses -->
+        <div class="form-group" id="accept-all-container">
+            <div class="checkbox small">
+                <input id="accept-all" type="checkbox" />
+                <label for="accept-all">Подтверждаю, что прочитал и согласен со всеми соглашениями</label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedConsentToPersonalDataProcessing" />
+                <label asp-for="Input.AcceptedConsentToPersonalDataProcessing">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/consent-to-personal-data-processing.pdf">согласием на обработку персональных данных</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedPivacyPolicy" />
+                <label asp-for="Input.AcceptedPivacyPolicy">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/privacy-policy.pdf">политикой конфеденциальности</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedTermsOfUser" />
+                <label asp-for="Input.AcceptedTermsOfUser">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/terms-of-use.pdf">условиями использования</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedOfferFoUser" />
+                <label asp-for="Input.AcceptedOfferFoUser">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/offer-for-buyer.pdf">офертой для физических лиц на заключение договоров купли-продажи</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedConsentToMailings" />
+                <label asp-for="Input.AcceptedConsentToMailings">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/consent-to-mailings.pdf">согласие на рассылку мне новостных, маркентинговых и иных данных</a> </label>
+            </div>
+        </div>
+        <!-- /licenses -->
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </div>
+    </form>
+
+    <div class="form-group links separated">
+        <p>
+            Уже есть аккаунт? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Авторизоваться</a>
+        </p>
+        <p>
+            Проблемы с регистрацией?
+            <a href="#" data-toggle="modal" data-target="#feedback-modal">
+                Свяжитесь с нами
+            </a>
+        </p>
+        @*
+        <p>
+        <a id="forgot-password" asp-page="./ForgotPassword">Забыли пароль?</a>
+        </p>
+        <p>
+        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Выслать подтверждающее письмо заново.</a>
+        </p>
+        *@
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

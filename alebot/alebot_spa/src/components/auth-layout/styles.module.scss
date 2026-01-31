@@ -1,0 +1,48 @@
+.container {
+  width: 100vw;
+  min-height: calc(100vh - 83px);
+  padding-top: 62px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 404px;
+      padding: 0 62px 32px;
+
+      p {
+        color: #bfbfbf;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .active {
+        p {
+          color: #2f5549;
+        }
+      }
+    }
+  }
+  .logo {
+    margin-bottom: 43px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}

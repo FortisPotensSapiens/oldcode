@@ -1,0 +1,158 @@
+.cardOverlay {
+  width: 100%;
+  padding: 28px 7.5px 0 7.5px;
+  position: relative;
+
+  .cardContent {
+    border-radius: 20px;
+    background: #fff;
+    padding: 22px 43px 43px 32px;
+    display: flex;
+    height: 100%;
+    @media only screen and (max-width: 756px) {
+      flex-direction: column;
+    }
+    @media only screen and (max-width: 528px) {
+      padding: 22px 10px 43px 32px;
+    }
+    .cardInfo {
+      width: 100%;
+      .cardImage {
+        border: 1px solid #f6f8ff;
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 100%;
+        }
+      }
+      .cardName {
+        padding-top: 30px;
+        * {
+          color: #1e1e1e;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+      .cardDescription {
+        margin-top: 17px;
+        * {
+          color: #000;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+    .cardActions {
+      padding-left: 14px;
+      display: flex;
+      flex-direction: column;
+      @media only screen and (max-width: 756px) {
+        padding-left: 0;
+        margin-top: 20px;
+      }
+      .actionButton {
+        @media only screen and (max-width: 756px) {
+          margin-bottom: 20px;
+        }
+        a {
+          border: 0;
+          outline: 0;
+          padding: 18px 28px;
+          background-color: transparent;
+          border-radius: 5px;
+          color: #fff;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          @media only screen and (max-width: 640px) {
+            min-width: 166px;
+          }
+          @media only screen and (max-width: 528px) {
+            padding: 12px 10px;
+            font-size: 12px;
+          }
+          &.continues {
+            background: #be8b20;
+          }
+          &.start {
+            background: #2f5549;
+          }
+        }
+      }
+
+      .aboutClases {
+        margin-top: auto;
+        * {
+          color: #c39f54;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          align-items: center;
+          gap: 21px;
+        }
+      }
+      .progressBar {
+        margin-top: 18px;
+        width: 100%;
+        max-width: 100%;
+        height: 1px;
+        background-color: #eeeeee;
+        border-radius: 5px;
+        position: relative;
+        .progressBarInner {
+          width: 100%;
+          background-color: #c39f54;
+          position: absolute;
+          left: 0;
+          top: 0;
+          border-radius: 5px;
+          height: 1px;
+        }
+      }
+      .status {
+        margin-top: 11px;
+        * {
+          color: #bfbfbf;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cardOverlay {
+    max-width: initial;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .cardOverlay {
+    .cardContent {
+      .cardInfo {
+        .cardImage {
+          img {
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+      .cardActions {
+        .actionButton {
+          button {
+            margin-top: 164px;
+          }
+        }
+      }
+    }
+  }
+}

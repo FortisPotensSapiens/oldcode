@@ -1,0 +1,16 @@
+@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Подтверждение адреса электронной почты";
+}
+
+<link rel="stylesheet" href="~/css/identity/form.css" />
+<link rel="stylesheet" href="~/css/identity/links.css" />
+
+<div class="form_container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="form-group links separated">
+        <p>@Model.StatusMessage</p>
+    </div>
+</div>

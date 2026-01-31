@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db_dev_daf_new
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks: ['app']
+  
+  web:    
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    links:
+      - postgres
+    ports:
+      - "8080"
+      - "80"
+    networks: ['app']
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;Database=db_dev_daf_new;User Id=postgres;Password=postgres;Pooling=true;
+
+networks: {app: {}}
+
+volumes:
+    postgres:

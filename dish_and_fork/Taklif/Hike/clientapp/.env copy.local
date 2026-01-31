@@ -1,0 +1,8 @@
+BROWSER=none
+REACT_APP_API_AUTH_CONFIG_URL=https://localhost:44396/_configuration
+REACT_APP_API_AUTH_CLIENT_ID=HikeTest
+
+REACT_APP_API_BASE_URL=https://localhost:44396/api/v1
+REACT_APP_SOCKET_HUBS=https://localhost:44396/real-time-hub
+
+REACT_APP_TELEGRAM_URL=https://t.me/dishfork

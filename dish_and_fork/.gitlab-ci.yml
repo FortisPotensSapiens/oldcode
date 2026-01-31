@@ -1,0 +1,25 @@
+image: mcr.microsoft.com/dotnet/sdk:5.0
+    
+stages:
+    - build
+
+build:
+    stage: build
+    
+    before_script:
+        - "apt-get update"
+        - "curl -sL https://deb.nodesource.com/setup_10.x |  bash -"
+        - "apt-get install -y nodejs"
+        - "echo ${msd_password}"
+    script:
+        - "cd Taklif"
+        - "cd Hike"
+        - "cd clientapp"
+        - "npm i --legacy-peer-deps"
+        - "npm run build -- --prod"
+        - "cd .."
+        - "dotnet restore"
+        - "dotnet build -c Release"
+        - "dotnet publish Hike.csproj /p:PublishProfile=FTPProfile.pubxml /p:Password=${msd_password} -c Release /p:Configuration=Release"
+        - "curl -sL http://85.193.84.243:8888/Start"
+

@@ -1,0 +1,31 @@
+.social-buttonss .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-buttonss .btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  display: inline-block;
+  width: auto;
+
+  border: 0;
+  box-shadow: none;
+}
+
+.social-buttonss img {
+  width: 60px;
+} 
+
+.social-buttonss span {
+  text-transform: none;
+  color: var(--main-color);
+}
+
+@media (max-width: 1000px) {
+  .social-buttonss img {
+    margin: 0 5px;
+  }
+}

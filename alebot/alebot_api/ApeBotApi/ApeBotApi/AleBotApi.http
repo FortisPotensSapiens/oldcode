@@ -1,0 +1,206 @@
+@AleBotApi_HostAddress = http://localhost:5240
+@AleBotApi_AcessToken = CfDJ8NKhvUuQWVVAsdFA-2cexGbq89Sma4cJAL0MV6YKCpaw7kCSN3oHYUIFDtFTNU3rJ7sF3GzJ2RvESjvh0iplGtpN4qb7YBVUs2FFVgI1OkKgAkdQ41VMNcLA0JengJdKgmJBIL1ia0Fb2WkSWimwedTIV2jdDFkN8Al2m1lVKqfZwuVyNphsDDZCwzhGXSNt0-xrcQURNGOB9fYMqgbcq58ra5PAxMZ_jLag_yjFbSirK_mdvpM5oouLEzSga0o8aIvfyWd_RDxWqFFyx_a_Fqdf_4Obd_0crQH3X1yYOPO9Z6R2o799gUpogXIOFzEESwnrVaC-BZLw9U1PuOkBr6x4y5noLGMQ4JNuwswQiB5qoXt8vofRcw_OgutumrjZopWHi8fD23zuHaVUK98XC37wtqWJNFOXpkxlAq-wNvXcKAFUcC685bADxnUWuSP_NWR1T0Q5rD_HpLsN-q7Fp3JQb37m_kVythXzgjg2d3gW1lsuwNJAxSkuEAfgbYtexgE8loyEIjLbVm7gkgH-nMFijHA5Ne84kIxq3kUA-HHWQZ3OGFPcw5Kw0qWFYSrf_dJpw4nTQeYKD_F5MCD03S1l54LRMDCuxC0YFxiDDrfQEuLF-MPyW0-JlDFUwgsgblAO7jVHaIw48aYFphNMQJGIJfHSR40pKzm0kDV9xTscm8pGFPoC57Y5vY1p66XOA5LPjWo8WCPDaSv_gqlraWgD2OfXynxIr-KZDgXtsmNHiahpzeNWl6leHLEj-Y5v4itp75GzFD1VncU3S2XO41Y3OgrhZAxkaPXiop0LmdtS
+@AleBotApi_ApiAddress = http://localhost:5240/api/v1
+@AleBotApi_RefreshToken = CfDJ8NKhvUuQWVVAsdFA-2cexGYahEiFuqiJbKJRc9l2S2nH6_obUEr3A-_rZdWvM_vN6P2_VBy1Idc4nDeFshnpyKyK2y_0jvsuslePnaBiH5zGyBBxtYv0o3cyTOPbpmL_u_FGQLo8gZKqu0T7K5ExHog_G1FsQDa2lI3jXYrmyQBBsRRC-TMHf2tbnUvXdLeIeAfQlrQBENa5V075bKHDmABh8xn0vHdpKZWMrzY-iLDze_AGcL2NCZzTMD-nku1XR3V7IPvyo0B0T_pDOhvno1nSE5Bndi8ZwPN7WRP1fnqNL6_Twb5NADtwjzDVnmA6ZaSLnvRv2oyyzsP6V9YumcGbhAC39VHEPv5DV5d2_91hjsfWfQgUhsilI-4JHelo1iMZf2Uf5-OHPD5bCxHAp8U403D-vP9MyfovUjiEGQ3nRHIGTwdzB2eUk5s8MCu48pzGamUPvel3XOvN_bDm0jzkuBJV7FQymMOYcxTNXyIVRyiCpiNumXiUOlSU7YjeCb6jn5H6zp_lZPmwY3XYU863YHOFlygyFHCCoN4GV39FHbaIQJvmKFJ4iTzcvqZ3_J1qHrDCmmfyUufepXU5TTjcop3M8Q6r2kloVZ0BqVHWveq2ZtOacS-189fouDbRUTSQiNUbyHzg6f6-GOqUKD-ivSA3ZWLatFdYqXyXuf1JmR76iL_l1IRIAXaQiOwX2e8IOcHuZHaKySNQVlAfpyU
+@UsdtId = 6f6ddd38-1bd9-4b23-85b7-30626eec641c
+@CryptoCloudId = eadee167-e7b0-4ee0-b577-1295a8a75852
+@Trc20Id = c1c2bc0f-bd55-4eac-b7b5-e48454a2533b
+@AccountId = e973e007-e372-4c1f-a4ac-eb60df12c48a
+@AccuralTransactionId =  611c580a-9ff2-4485-8d96-165b14f97310
+@DebitingTransactionId =  b1334ef3-c542-4fe9-bac5-dc5e942823d0
+@InvoiceId = B588WLV1
+
+GET {{AleBotApi_HostAddress}}/healthz
+###
+
+//SSO
+
+POST    {{AleBotApi_ApiAddress}}/sso/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "my@gmail.com",
+  "password": "1234Qwert!",
+  "refererId": "e4909f69-5d69-4e49-99b1-eb1c3df0db2c"
+}
+###
+
+POST    {{AleBotApi_ApiAddress}}/sso/send-confirmation-code-to-email 
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "my@gmail.com"
+}
+###
+
+POST    {{AleBotApi_ApiAddress}}/sso/comfirm-email
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "my@gmail.com",
+  "code": "124143"
+}
+###
+
+POST    {{AleBotApi_HostAddress}}/login 
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "admin@mail.ru",
+  "password": "1234Qwert!"
+}
+###
+
+GET {{AleBotApi_ApiAddress}}/sso/users/my-user-info
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###
+
+POST    {{AleBotApi_ApiAddress}}/sso/send-password-reset-code-to-email 
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "my@gmail.com"
+}
+###
+
+POST    {{AleBotApi_ApiAddress}}/sso/reset-password
+Accept: application/json
+Content-Type: application/json
+
+{
+  "code": "557257",
+  "email": "my@gmail.com",
+  "password": "String1!"
+}
+###
+
+POST    {{ApeBotApi_HostAddress}}/refresh 
+Accept: application/json
+Content-Type: application/json
+
+{
+  "refreshToken": "{{AleBotApi_RefreshToken}}"
+}
+###
+
+//Wallet
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/currencies
+
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/payment-systems
+
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/payment-networks
+
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/accounts
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/accounts/{{AccountId}}
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/account/{{AccountId}}/transactions
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/transactions
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###
+
+GET {{AleBotApi_HostAddress}}/api/v1/wallet/transactions/{{AccuralTransactionId}}
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###
+
+POST {{AleBotApi_HostAddress}}/api/v1/wallet/accounts?currencyId={{UsdtId}}
+Content-Type: application/json
+Authorization: Bearer {{AleBotApi_AcessToken}}
+
+{
+  
+}
+
+###
+
+POST {{AleBotApi_HostAddress}}/api/v1/wallet/transactions/accruals
+Content-Type: application/json
+Authorization: Bearer {{AleBotApi_AcessToken}}
+
+{
+  "accountId": "{{AccountId}}",
+  "amount": 1001,
+  "paymentSystemId": "{{CryptoCloudId}}"
+}
+
+###
+
+POST {{AleBotApi_HostAddress}}/api/v1/wallet/transactions/debitings
+Content-Type: application/json
+Authorization: Bearer {{AleBotApi_AcessToken}}
+
+{
+  "accountId": "{{AccountId}}",
+  "amount": 100,
+  "paymentNetworkId": "{{Trc20Id}}",
+  "debitCryptoWalletAddress": "x011111",
+  "paymentCurrencyId": "{{UsdtId}}"
+}
+###
+
+POST {{AleBotApi_HostAddress}}/api/v1/wallet/cryptocloud/invoicies?transactionId={{AccuralTransactionId}}
+Content-Type: application/json
+Authorization: Bearer {{AleBotApi_AcessToken}}
+
+{
+  //Guid
+}
+
+###
+
+POST {{AleBotApi_HostAddress}}/api/v1/cryptocloud
+Content-Type: application/x-www-form-urlencoded
+
+status=success&invoice_id={{InvoiceId}}
+###
+
+
+
+`
+
+PUT {{AleBotApi_HostAddress}}/api/v1/wallet-admin/transactions/{{DebitingTransactionId}}/complete
+Content-Type: application/json
+Authorization: Bearer {{AleBotApi_AcessToken}}
+
+{
+  "paymentFee": 0.1
+}
+###
+
+
+
+
+
+//License
+
+POST {{AleBotApi_HostAddress}}/api/v1/license-admin/licenses
+Content-Type: application/json
+Authorization: Bearer {{AleBotApi_AcessToken}}
+
+{
+  "name": "Pro Top 2"
+}
+###
+
+
+GET {{AleBotApi_HostAddress}}/api/v1/license-admin/licenses
+Authorization: Bearer {{AleBotApi_AcessToken}}
+###

@@ -1,0 +1,12 @@
+{
+  "enums": {
+    "type": {
+      "Kind": "Тип",
+      "Additionally": "Дополнительно",
+      "Composition": "Состав"
+    }
+  },
+  "productions": {
+    "find": "Поиск"
+  }
+}

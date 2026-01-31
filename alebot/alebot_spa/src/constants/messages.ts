@@ -1,0 +1,5 @@
+export const REQUIRED_TEXT = "Обязательное поле"
+export const PASSWORD_MISMATCH = "Пароли не совпадают"
+export const WRONG_EMAIL_FORMAT = "Неправильный формат почты"
+export const WRONG_CODE = "Неправильный код"
+export const WRONG_PHONE = "Не валидный номер телефона"

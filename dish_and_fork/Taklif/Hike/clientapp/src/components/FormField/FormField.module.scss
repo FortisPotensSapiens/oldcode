@@ -1,0 +1,18 @@
+.input {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    direction: rtl;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(128, 128, 128, 0.7);
+    direction: rtl;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 4px;
+    direction: rtl;
+  }
+}

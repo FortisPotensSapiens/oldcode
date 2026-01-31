@@ -1,0 +1,19 @@
+@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Подтверждение регистрации";
+}
+<link rel="stylesheet" href="~/css/identity/form.css" />
+<link rel="stylesheet" href="~/css/identity/links.css" />
+
+<div class="form_container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="form-group links separated">
+        @{
+            <p>
+                Пожалуйста, проверьте свой адрес электронной почты @Model.Email  для подтверждения вашей учетной записи.
+            </p>
+        }
+    </div>
+</div>

@@ -1,0 +1,2 @@
+console.log('ttttttttttttttttttttssssssssssssssssssDDDDDDDDDDDDDDDDDD1');
+(function(a,m,o,c,r,m){a[m]={id:"409340",hash:"fb700f5c4fd9f6df751bfbdd94a7973906a25a47232c6a7df7c5f14568d049da",locale:"ru",inline:false,setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.amocrm.ru/js/button.js';d.head&&d.head.appendChild(s)}(window,0,'amoSocialButton',0,0,'amo_social_button'));

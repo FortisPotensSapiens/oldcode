@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+input,
+select {
+  font-family: inherit;
+}
+input:focus{
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+input{
+border: none !important;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px 70px;
+
+  .footerItem {
+    color: #bfbfbf;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: default;
+  }
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+button.MuiButton-root {
+  &.Mui-disabled {
+    background-color: #5a6a65 !important;
+  }
+}
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+img {
+  max-width: 100%;
+  border-style: none;
+  box-sizing: border-box;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+.color-green{
+  color: #2F5549 !important;
+}
+.bg-green{
+  background-color: #2F5549 !important;
+}
+.wrap_ad00{
+  bottom: 52px !important;
+}
+.color-red{
+  color: red;
+}

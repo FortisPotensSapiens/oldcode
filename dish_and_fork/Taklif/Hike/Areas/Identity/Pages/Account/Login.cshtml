@@ -1,0 +1,100 @@
+@page
+@using Microsoft.Extensions.Configuration
+@model LoginModel
+@inject IConfiguration configuration
+@{
+    var isTesting = configuration["IsTesting"]?.ToLower() == "true";
+}
+
+<link rel="stylesheet" href="~/css/identity/form.css" />
+<link rel="stylesheet" href="~/css/identity/social_buttons.css" />
+<link rel="stylesheet" href="~/css/identity/links.css" />
+
+<partial name="_Modal" />
+
+<div class="form_container">
+    <h1>Добро пожаловать!</h1>
+
+    @if ((Model.ExternalLogins?.Count ?? 0) == 0)
+    {
+        <div>
+        </div>
+    }
+    else
+    {
+        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post"
+              class="form-horizontal form-group separated">
+            <div class="social-buttonss">
+                @foreach (var provider in Model.ExternalLogins)
+                {
+                    <button type="submit" class="btn btn-social" name="provider" value="@provider.Name"
+                            title="Войдите используя ваш @provider.DisplayName аккаунт">
+                        <img src='~/img/@(provider.Name.ToLower() +".png")' alt="@provider.Name" />
+                    </button>
+                }
+            </div>
+        </form>
+    }
+
+    <h3 class="email_enter_title"><span>зайти через e-mail</span></h3>
+    <div class="email_enter_separator"></div>
+
+    <form id="account" method="post" class="form">
+        <div class="form-group">
+            <input asp-for="Input.Email" class="form-control" placeholder="E-mail или логин" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Input.Password" class="form-control" placeholder="Пароль" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <input asp-for="Input.RememberMe" />
+                <label asp-for="Input.RememberMe">@Html.DisplayNameFor(m => m.Input.RememberMe)</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </form>
+
+
+
+    <div class="form-group links separated">
+        <p>
+            Новый пользователь? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Регистрация</a>
+        </p>
+        <p>
+            Забыли пароль? <a id="forgot-password" asp-page="./ForgotPassword">Восстановить</a>
+        </p>
+        <p>
+            Проблемы со входом?
+            <a href="#" data-toggle="modal" data-target="#feedback-modal">
+                Свяжитесь с нами
+            </a>
+        </p>
+
+        <p>
+            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Выслать подтверждающее письмо заново.</a>
+        </p>
+    </div>
+</div>
+
+
+@if (isTesting)
+{
+    <div class="alert alert-success" role="alert">
+        <p> Тестовые данные:</p>
+        <p> Админ(логин: admin@mail.ru пароль: Pass@word1) </p>
+        <p> Пользователь(логин: user@mail.ru пароль: Pass@word2) </p>
+        <p> Продавец(логин: seller@mail.ru пароль: Pass@word3) </p>
+        <p>Тестовая карта для оплаты:</p>
+        <p> 5555555555554444 (подойдет любой код CVC и дата из будущего)</p>
+    </div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

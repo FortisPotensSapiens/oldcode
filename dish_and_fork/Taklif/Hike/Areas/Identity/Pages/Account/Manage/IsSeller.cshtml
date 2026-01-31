@@ -1,0 +1,22 @@
+@page
+@using Hike.Areas.Identity.Pages.Account.Manage
+@model IsSellerModel
+@{
+    ViewData["Title"] = "Стать продавцом";
+    ViewData["ActivePage"] = ManageNavPages.IsSeller;
+}
+
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="is-seller-form" method="post">
+            После нажатия кнопки у вас появиться возможность продавать свои услуги и товары через наш сайт
+            <button id="be-seller-button" type="submit" class="btn btn-primary">Стать продавцом</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

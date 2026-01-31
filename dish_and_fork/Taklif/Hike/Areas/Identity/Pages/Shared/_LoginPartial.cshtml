@@ -1,0 +1,50 @@
+@using Hike.Entities
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<HikeUser> SignInManager
+@inject UserManager<HikeUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+
+<script>
+    function goBackFromNav(e) {
+        e.preventDefault();
+        window.history.back();
+    }
+
+    function goAheadFromNav(e) {
+        e.preventDefault();
+        window.history.forward();
+    }
+</script>
+
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link text-dark logo" asp-area="Identity" asp-page="/Account/ReturnToOriginalApplication">
+            <img src="~/img/logo.svg" />
+        </a>
+    </li>
+    <li>
+        <ul class="navbar-links">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Управление аккаунтом</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new {area = ""})" method="post">
+                        <button type="submit" class="nav-link btn btn-link text-dark">Выйти</button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Авторизация</a>
+                </li>
+            }
+        </ul>
+    </li>
+</ul>

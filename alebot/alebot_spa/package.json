@@ -1,0 +1,53 @@
+{
+  "name": "material-ui-nextjs-ts",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@amplitude/analytics-browser": "^2.5.2",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/x-data-grid": "latest",
+    "@mui/x-date-pickers-pro": "latest",
+    "axios": "latest",
+    "base64-js": "latest",
+    "formik": "latest",
+    "moment": "latest",
+    "mui-markdown": "latest",
+    "mui-phone-number": "^3.0.3",
+    "next": "latest",
+    "notistack": "latest",
+    "react": "latest",
+    "react-date-range": "latest",
+    "react-dom": "latest",
+    "react-moment": "latest",
+    "react-slick": "latest",
+    "sharp": "latest",
+    "slick-carousel": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-date-range": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-slick": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "sass": "latest",
+    "typescript": "latest"
+  },
+  "description": "q",
+  "main": "q",
+  "repository": "git@gitlab.com:alebot1/alebot_spa.git",
+  "author": "muha <mzununov@intelkon>",
+  "license": "MIT"
+}

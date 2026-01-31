@@ -1,0 +1,72 @@
+@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<link rel="stylesheet" href="~/css/identity/form.css" />
+<link rel="stylesheet" href="~/css/identity/links.css" />
+
+<div class="form_container">
+    <h1>Ассоциируйте свой @Model.ProviderDisplayName аккаунт.</h1>
+
+    <div class="form-group links separated @(string.IsNullOrWhiteSpace(Model.Input?.Email) ? " " : "d-none")">
+        <p id="external-login-description" class="text-info">
+            Пожалуйста, введите адрес электронной почты с которой будет связан ваш <strong>@Model.ProviderDisplayName</strong> и нажмите Зарегистрироваться, чтобы завершить
+            вход в систему. Email нужен чтобы другие способы входа связать воедино вместе и отправлять вам уведомления и коды подтверждения при важных действиях на сайте.
+        </p>
+    </div>
+
+    <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <div class="form-group @(string.IsNullOrWhiteSpace(Model.Input?.Email) ? " " : "d-none")">
+            <input asp-for="Input.Email" class="form-control" placeholder="E-mail" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <!-- licenses -->
+        <div class="form-group" id="accept-all-container">
+            <div class="checkbox small">
+                <input id="accept-all" type="checkbox" />
+                <label for="accept-all">Подтверждаю, что прочитал и согласен со всеми соглашениями</label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedConsentToPersonalDataProcessing" />
+                <label asp-for="Input.AcceptedConsentToPersonalDataProcessing">Подтверждаю, что прочитал и согласен с &ensp;<a href="/doc/consent-to-personal-data-processing.pdf">согласие на обработку персональных данных</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedPivacyPolicy" />
+                <label asp-for="Input.AcceptedPivacyPolicy">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/privacy-policy.pdf">политику конфеденциальности</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedTermsOfUser" />
+                <label asp-for="Input.AcceptedTermsOfUser">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/terms-of-use.pdf">условия использования</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedOfferFoUser" />
+                <label asp-for="Input.AcceptedOfferFoUser">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/offer-for-buyer.pdf">оферту для физических лиц на заключение договоров купли-продажи</a> <span class="mandatory">*</span> </label>
+            </div>
+        </div>
+        <div class="form-group agreement">
+            <div class="checkbox small">
+                <input asp-for="Input.AcceptedConsentToMailings" />
+                <label asp-for="Input.AcceptedConsentToMailings">Подтверждаю, что прочитал и согласен с&ensp;<a href="/doc/consent-to-mailings.pdf">согласие на рассылку мне новостных, маркентинговых и иных данных</a> </label>
+            </div>
+        </div>
+        <!-- /licenses -->
+
+        <button type="submit" class="btn btn-primary">Регистрация</button>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

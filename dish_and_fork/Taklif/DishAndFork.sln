@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hike", "Hike\Hike.csproj", "{A86EABFD-2389-4490-9DAB-8FFEB97F372E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daf.Tests", "Daf.Tests\Daf.Tests.csproj", "{45C95331-FD94-4610-8440-1730A9AAAB99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89C3BBF3-150B-4931-8659-4D7E8D2709D4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		..\.gitignore = ..\.gitignore
+		..\.gitlab-ci.yml = ..\.gitlab-ci.yml
+		..\.gitpod.yml = ..\.gitpod.yml
+		nginx.conf = nginx.conf
+		nginx.yml = nginx.yml
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A86EABFD-2389-4490-9DAB-8FFEB97F372E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A86EABFD-2389-4490-9DAB-8FFEB97F372E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A86EABFD-2389-4490-9DAB-8FFEB97F372E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A86EABFD-2389-4490-9DAB-8FFEB97F372E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C95331-FD94-4610-8440-1730A9AAAB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C95331-FD94-4610-8440-1730A9AAAB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C95331-FD94-4610-8440-1730A9AAAB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C95331-FD94-4610-8440-1730A9AAAB99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {722D22AB-2E54-4017-B8C0-40F0320EBE93}
+	EndGlobalSection
+EndGlobal

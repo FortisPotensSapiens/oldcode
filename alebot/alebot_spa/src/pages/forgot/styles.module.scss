@@ -1,0 +1,175 @@
+.formContent {
+  width: 100%;
+  max-width: 404px;
+  * {
+    font-family: "Montserrat";
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 404px;
+    margin-bottom: 32px;
+
+    p {
+      color: #2f5549;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  button {
+    border-radius: 4px;
+    background: #2f5549;
+    max-width: 117px;
+    width: 100%;
+    margin: 175px auto 0 auto;
+    &.newPass {
+      margin: 85px auto 0 auto;
+    }
+    display: block;
+    &:hover {
+      background: #2f5549;
+    }
+  }
+}
+.confirmPassword {
+  max-width: 404px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='404' height='328' viewBox='0 0 404 328' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M401 1H3C2.36453 1 1.79829 1.29637 1.43194 1.75842L200.631 116.528L402.866 2.27846C402.576 1.53046 401.85 1 401 1ZM403 3.34641L200.612 117.683L200.602 117.661L1.02645 2.67392C1.00905 2.78003 1 2.88896 1 3V325C1 326.105 1.89543 327 2.99999 327H401C402.105 327 403 326.105 403 325V3.34641ZM3 0C1.9938 0 1.10331 0.495357 0.55907 1.25551L0.416668 1.17346L0 2.08252L0.121392 2.15246C0.0423879 2.42122 0 2.70566 0 3V325C0 326.657 1.34314 328 2.99999 328H401C402.657 328 404 326.657 404 325V3C404 1.34315 402.657 0 401 0H3Z' fill='%23EEEEEE'/%3E%3C/svg%3E");
+  min-height: 328px;
+  background-size: contain;
+  padding-top: 22px;
+  .sectionHeadline {
+    color: #1e1e1e;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .messageIcon {
+    margin: 20px auto 0 auto;
+    width: 24px;
+    height: 24px;
+  }
+  .sectionMessage {
+    color: #1e1e1e;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    max-width: 344px;
+    width: 100%;
+    margin: 36px auto 0 auto;
+  }
+  .sectionActions {
+    max-width: 214px;
+    width: 100%;
+    margin: 4px auto 0 auto;
+    .timer {
+      color: #c39f54;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 7px;
+      span {
+        color: #bfbfbf;
+      }
+    }
+    .formGroup {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 8px;
+      :global {
+        .MuiTextField-root {
+          width: 100%;
+          max-width: 100%;
+
+          &::after {
+            content: "*";
+            position: absolute;
+            right: 16px;
+            top: 8px;
+            color: #c39f54;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+          }
+          label {
+            left: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+            letter-spacing: 0em;
+            text-align: left;
+
+            &.MuiFormLabel-filled {
+              color: #bfbfbf;
+              font-size: 10px;
+              font-weight: 700;
+            }
+            &.Mui-focused {
+              color: #000;
+              font-size: 10px;
+              font-weight: 700;
+            }
+          }
+        }
+        .MuiInputBase-root {
+          border-radius: 0;
+          position: relative;
+          width: 100%;
+          max-width: 100%;
+          &::before {
+            content: none;
+            background-color: transparent;
+          }
+          &::after {
+            content: " ";
+            width: 5px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background-color: #2f5549;
+            border-radius: 0 5px 5px 0;
+            display: block;
+            border-bottom: 0;
+            bottom: 0;
+          }
+          &.Mui-focused {
+            input {
+              color: #000;
+            }
+          }
+          input {
+            padding-left: 21px;
+            height: 0.8em;
+            background-color: #fff;
+            color: #bfbfbf;
+            border: 1px solid #eee;
+            border-radius: 6px;
+          }
+        }
+      }
+    }
+    button {
+      border-radius: 4px;
+      background: #2f5549;
+      max-width: 194px;
+      width: 100%;
+      margin: 16px auto 0 auto;
+      display: block;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 500;
+      padding: 10px;
+      &:hover {
+        background: #2f5549;
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<div class="toast-container">
+  <div id="feedback-success-toast" class="toast d-flex align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body text-success">
+      Ваше сообщение успешно отправлено администрации.
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="feedback-modal">
+  <form id="feedback-modal-form">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Связаться с нами</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-tip">Наш специалист свяжется с Вами в ближайшее время.</p>
+            <div class="form-group">
+              <label for="feedback-modal-email-input">Электронная почта*</label>
+              <input name="Email" type="email" class="form-control" id="feedback-modal-email-input" aria-describedby="emailHelp"
+                placeholder="" required>
+            </div>
+            <div class="form-group">
+              <label for="feedback-modal-name-input">Имя</label>
+              <input name="Name" type="text" class="form-control" id="feedback-modal-name-input" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="feedback-modal-message-input">Сообщение*</label>
+              <textarea name="Message" class="form-control" id="feedback-modal-message-input" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Выбере файл для загрузки</label>
+              <input name="Files" type="file" id="feedback-modal-file-input">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Отправить</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    bootstrap.Toast.Default.delay = 4000
+
+    jQuery.extend(jQuery.validator.messages, {
+      required: "Это обязательное поле.",
+      email: "Укажите пожалуйста адрес электронной почты.",
+    });
+
+    $("#feedback-modal-form").validate({
+      submitHandler: function(form) {
+        const formData = new FormData(form);
+        $.ajax({
+          url: '/api/v1/messaging/send-feedback',
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false
+        }).done(() => {
+          $('#feedback-modal').modal('hide');
+          $('#feedback-success-toast').toast('show')
+        });
+
+        //console.log(form);
+        //$(form).ajaxSubmit();
+        console.log(formData);
+      }
+    });
+  });
+  
+</script>

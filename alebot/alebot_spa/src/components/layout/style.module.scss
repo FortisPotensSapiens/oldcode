@@ -1,0 +1,602 @@
+.wrapper {
+  background: #f6f8ff;
+  padding-left: 310px;
+  width: 100%;
+  min-height: 100vh;
+  padding-right: 50px;
+  * {
+    font-family: "Montserrat";
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 310px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+     .hideButtonWrapper {
+        display: none;
+     }
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #aa9a78;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #c39f54;
+      border-radius: 10px;
+    }
+    .sidebarContent {
+      max-width: 288px;
+      width: 100%;
+      border-radius: 0px 50px 50px 0px;
+      background: #fff;
+      padding-top: 31px;
+      height: 100%;
+
+      .brand {
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+      }
+      ul {
+        padding: 60px 0;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100% - 64px);
+        background-color: #fff;
+        li {
+          padding-left: 40px;
+          width: calc(100% + 6px);
+          position: relative;
+          cursor: pointer;
+          &::after {
+            content: " ";
+            position: absolute;
+            width: 14px;
+            height: 100%;
+            border-radius: 0px 38px 38px 0px;
+            background-color: #fff;
+            display: block;
+            left: 0;
+            top: 0;
+          }
+          .listItemContent {
+            padding: 13px 26px 13px 26px;
+            border-radius: 38px;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            &::after {
+              content: " ";
+              position: absolute;
+              right: 13px;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 16px;
+              height: 16px;
+              background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Arrows-chevron/Arrow-Down'%3E%3Cpath id='Icon' fill-rule='evenodd' clip-rule='evenodd' d='M4 2.38608C4 2.65556 4.10246 2.92503 4.30807 3.13065L9.17825 8.00013L4.30807 12.8696C3.89754 13.2808 3.89754 13.9475 4.30807 14.3587C4.7193 14.7693 5.38597 14.7693 5.7972 14.3587L11.4112 8.74469C11.8218 8.33346 11.8218 7.66679 11.4112 7.25556L5.79719 1.64152C5.38597 1.231 4.7193 1.231 4.30807 1.64152C4.10246 1.84714 4 2.11661 4 2.38608Z' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+            }
+            .listItemName {
+              color: #c39f54;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+          }
+          &.active {
+            &::after {
+              background: #c39f54;
+            }
+            .listItemContent {
+              background: #c39f54;
+              .listItemName {
+                color: #fff;
+              }
+            }
+          }
+          .icon {
+            margin-right: 17px;
+            width: 25px;
+            height: 25px;
+            svg {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          &:nth-last-child(2) {
+            padding-top: 28px;
+            margin-top: auto;
+            &::after {
+              content: " ";
+              height: 1px;
+              background-color: #c39f54;
+              width: 75px;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+    }
+  }
+  .content {
+    padding-top: 31px;
+    .contentHeader {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      max-width: 100%;
+      justify-content: space-between;
+      .userActions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 12px;
+        .fone {
+          background-color: #fff;
+          box-shadow: 4px 9px 11px -7px rgba(0, 0, 0, 0.08);
+          padding: 17px 30px 17px 22px;
+          border-radius: 10px;
+          &.userIcon {
+            padding: 17px 18px;
+          }
+          button {
+            background-color: transparent;
+            width: 25px;
+            height: 25px;
+            border: 0;
+            cursor: pointer;
+            outline: 0;
+          }
+          ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+
+            li {
+              &:not(:last-child) {
+                margin-right: 28px;
+              }
+            }
+          }
+          .tradeInfo {
+            display: flex;
+            align-items: center;
+            .icon {
+              width: 25px;
+              height: 25px;
+              margin-right: 12px;
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            color: #1e1e1e;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+      }
+      .searchOverlay {
+        display: flex;
+        align-items: center;
+        max-width: 550px;
+        width: 100%;
+        margin-top: 40px;
+        padding-right: 20px;
+        .burgerIconWrapper {
+          display: none;
+        }
+        .searchHeadline {
+          color: #1e1e1e;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        .inputOverlay {
+          margin-left: auto;
+          padding-left: 5px;
+          max-width: 312px;
+          width: 100%;
+          position: relative;
+          .searchIcon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            svg {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          input {
+            padding: 12px 12px 12px 44px;
+            background-color: #fff;
+            border-radius: 5px;
+            background: #fff;
+            border: 0;
+            outline: 0;
+            width: 100%;
+            max-width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+    .section-main-panel {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 860px) {
+  .wrapper {
+    padding-right: 30px;
+    padding-left: 280px;
+    .content {
+      .contentHeader {
+        .userActions {
+          .fone {
+            padding: 8px;
+            .tradeInfo {
+              font-size: 14px;
+              .icon {
+                width: 20px;
+                height: 20px;
+              }
+            }
+            ul li:not(:last-child) {
+              margin-right: 14px;
+            }
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+            button {
+              width: 20px;
+              height: 20px;
+            }
+            &.userIcon {
+              padding: 8px;
+            }
+          }
+        }
+        .searchOverlay {
+          margin-top: 0;
+          display: block;
+          .inputOverlay {
+            margin-left: initial;
+          }
+          .searchHeadline {
+            margin-bottom: 12px;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+    .sidebar {
+      max-width: 250px;
+      .sidebarContent {
+        max-width: 240px;
+        .brand {
+          img {
+            width: 159px;
+            height: 45px;
+          }
+        }
+        ul {
+          li {
+            .listItemContent {
+              padding: 10px 20px;
+            }
+            padding-left: 16px;
+            &.active {
+              &::after {
+                width: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 859px) and (min-width: 640px) {
+  .wrapper {
+    padding-right: 30px;
+    padding-left: 230px;
+    .content {
+      .contentHeader {
+        &.withSearch {
+          .userActions {
+            position: relative;
+            .fone {
+              &.userIcon {
+                position: absolute;
+                right: 0;
+                top: -102px;
+              }
+            }
+          }
+        }
+        display: block;
+        .userActions {
+          position: relative;
+          .fone {
+            padding: 8px;
+            .tradeInfo {
+              font-size: 14px;
+              .icon {
+                width: 20px;
+                height: 20px;
+              }
+            }
+            ul li:not(:last-child) {
+              margin-right: 14px;
+            }
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+            button {
+              width: 20px;
+              height: 20px;
+            }
+            &.userIcon {
+              padding: 8px;
+              position: absolute;
+              right: 0;
+              top: -50px;
+            }
+          }
+        }
+
+        .searchOverlay {
+          margin-top: 0;
+          display: block;
+          padding-right: 0;
+          max-width: initial;
+
+          .inputOverlay {
+            margin-left: initial;
+            margin-bottom: 12px;
+            padding-left: 0;
+            width: 100%;
+            max-width: initial;
+          }
+          .searchHeadline {
+            margin-bottom: 12px;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+    .sidebar {
+      max-width: 230px;
+      .sidebarContent {
+        max-width: 200px;
+        .brand {
+          img {
+            width: 159px;
+            height: 45px;
+          }
+        }
+        ul {
+          li {
+            padding-left: 16px;
+            .listItemContent {
+              padding: 10px 15px;
+              .listItemName {
+                font-size: 13px;
+              }
+            }
+
+            &.active {
+              &::after {
+                width: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .wrapper {
+    padding-right: 30px;
+    padding-left: 30px;
+    &.isOpen {
+      height: 100vh;
+      overflow: hidden;
+    }
+    .content {
+      .contentHeader {
+        &.withSearch {
+          .userActions {
+            position: relative;
+            .fone {
+              &.userIcon {
+                position: absolute;
+                right: 0;
+                top: -112px;
+              }
+            }
+          }
+        }
+        display: block;
+        .userActions {
+          position: relative;
+          justify-content: space-between;
+
+          .fone {
+            padding: 8px;
+            .tradeInfo {
+              font-size: 14px;
+              .icon {
+                width: 20px;
+                height: 20px;
+              }
+            }
+            ul li:not(:last-child) {
+              margin-right: 14px;
+            }
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+            button {
+              width: 20px;
+              height: 20px;
+            }
+            &.userIcon {
+              padding: 8px;
+              position: absolute;
+              right: 0;
+              top: -60px;
+            }
+          }
+        }
+
+        .searchOverlay {
+          margin-top: 0;
+          display: block;
+          padding-right: 0;
+          max-width: initial;
+          .burgerIconWrapper {
+            display: block;
+            position: relative;
+          }
+          .burgerIcon {
+            top: 0;
+            left: -30px;
+            position: absolute;
+            width: 11px;
+            height: 42px;
+            border-radius: 0 38px 38px 0;
+            background-color: #C39F54;
+            svg {
+              width: 40px;
+              height: 40px;
+              cursor: pointer;
+            }
+          }
+          .inputOverlay {
+            margin-left: initial;
+            margin-bottom: 12px;
+            padding-left: 0;
+            width: 100%;
+            max-width: initial;
+          }
+          .searchHeadline {
+            margin-left: 20px;
+            padding-top: 8px;
+            margin-bottom: 24px;
+            font-size: 24px;
+          }
+        }
+      }
+      .section-main-panel {
+        display: block;
+        .cardOverlay {
+          max-width: initial;
+        }
+      }
+    }
+    .sidebar {
+      z-index: 2000;
+      width: 100vw;
+      max-width: initial;
+      .hideButtonWrapper {
+        display: block;
+        position: relative;
+        .hideButton {
+          position: absolute;
+          top: 40px;
+          right: 10px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &.hide {
+        left: calc(-100% - 20px);
+      }
+      .sidebarContent {
+        border-radius: initial;
+        max-width: initial;
+        ul {
+          padding: 60px 30px 60px 0;
+        }
+      }
+    }
+  }
+}
+.mobileNav{
+  display: none;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  width: 100%;
+  height: 58px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1000;
+  padding: 0 18px;
+  border-radius: 12px 12px 0 0;
+  @media only screen and (max-width: 639px) {
+    display: grid;
+  };
+  .navItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+      color: #C39F54;
+      font-size: 10px;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+    .menuButton{
+      display: flex;
+      width: 65px;
+      height: 38px;
+      border-radius: 38px;
+      justify-content: center;
+      align-items: center;
+      background-color: #C39F54;
+      color: #fff;
+      font-size: 10px;
+    }
+  }
+}

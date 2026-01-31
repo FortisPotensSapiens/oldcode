@@ -1,0 +1,24 @@
+@page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Повторно выслать email подтверждения";
+}
+
+<link rel="stylesheet" href="~/css/identity/form.css" />
+
+<div class="form_container">
+    <h1>Повторно отправьте подтверждение по электронной почте</h1>
+
+    <form method="post">
+        <div class="form-group">
+            <input asp-for="Input.Email" class="form-control" placeholder="E-mail"/>
+            <span asp-validation-for="Input.Email" class="text-danger" placeholder="E-mail"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Выслать</button>
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
